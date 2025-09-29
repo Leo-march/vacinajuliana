@@ -1,6 +1,11 @@
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Vacinas() {
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+
   const vacinas = [
     { id: 'influenza', nome: 'Influenza Sazonal Trivalente', icone: '💉', cor: '#e74c3c' },
     { id: 'hepatite-a', nome: 'Hepatite A', icone: '🦠', cor: '#e67e22' },
@@ -23,16 +28,26 @@ export default function Vacinas() {
 
       <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '3rem' }}>
         {vacinas.map((vacina) => (
-          <Link key={vacina.id} href={`/vacinas/${vacina.id}`} style={{ textDecoration: 'none' }}>
+          <Link 
+            key={vacina.id} 
+            href={`/vacinas/${vacina.id}`} 
+            style={{ textDecoration: 'none' }}
+            onMouseEnter={() => setHoveredId(vacina.id)}
+            onMouseLeave={() => setHoveredId(null)}
+          >
             <div style={{ 
-              border: '2px solid #b13f3f', 
+              border: hoveredId === vacina.id ? `3px solid ${vacina.cor}` : '2px solid #b13f3f', 
               borderRadius: 8, 
               padding: 15, 
               width: 160, 
               textAlign: 'center',
               cursor: 'pointer',
-              transition: 'all 0.3s',
-              backgroundColor: 'white'
+              transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+              backgroundColor: 'white',
+              transform: hoveredId === vacina.id ? 'translateY(-8px) scale(1.05)' : 'translateY(0) scale(1)',
+              boxShadow: hoveredId === vacina.id 
+                ? `0 8px 16px ${vacina.cor}40` 
+                : '0 2px 4px rgba(0,0,0,0.1)'
             }}>
               <div style={{
                 width: 80,
@@ -43,50 +58,24 @@ export default function Vacinas() {
                 justifyContent: 'center',
                 fontSize: '3rem',
                 margin: '0 auto 1rem',
-                backgroundColor: vacina.cor + '20'
+                backgroundColor: vacina.cor + '20',
+                transition: 'all 0.4s ease',
+                transform: hoveredId === vacina.id ? 'rotate(360deg) scale(1.1)' : 'rotate(0deg) scale(1)'
               }}>
                 {vacina.icone}
               </div>
-              <strong style={{ color: '#2c3e50', fontSize: '1rem' }}>{vacina.nome}</strong>
+              <strong style={{ 
+                color: hoveredId === vacina.id ? vacina.cor : '#2c3e50', 
+                fontSize: '1rem',
+                transition: 'color 0.3s ease',
+                display: 'block'
+              }}>
+                {vacina.nome}
+              </strong>
             </div>
           </Link>
         ))}
       </div>
-
-      <section style={{ 
-        marginTop: '2rem', 
-        border: '2px solid #b13f3f', 
-        borderRadius: 8, 
-        padding: 20,
-        backgroundColor: 'white'
-      }}>
-        <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#2c3e50', marginBottom: '1rem' }}>
-          Vacina Influenza sazonal trivalente (fragmentada e inativada)
-        </h3>
-        <p style={{ lineHeight: 1.8, color: '#555', marginBottom: '1rem' }}>
-          A vacina Influenza do Butantan protege contra os três tipos de vírus Influenza mais prevalentes 
-          e sua composição é alterada anualmente, devido à alta taxa de mutação do vírus.
-        </p>
-        <p style={{ lineHeight: 1.8, color: '#555', marginBottom: '1rem' }}>
-          É produzida a partir da inoculação do vírus em ovos embrionados de galinhas. Após um período 
-          de incubação, o líquido alantóico que envolve o embrião é colhido, centrifugado, concentrado, 
-          fragmentado e inativado, originando uma suspensão da vacina monovalente. A mistura das suspensões 
-          de cada monovalente resulta assim na vacina trivalente.
-        </p>
-        <p style={{ marginTop: '1rem' }}>
-          <strong>Bula Hemisfério Sul:</strong>
-        </p>
-        <p style={{ color: 'darkgreen', marginTop: '0.5rem' }}>
-          <a 
-            href="https://butantan.gov.br/producao/vacinas" 
-            target="_blank" 
-            rel="noreferrer" 
-            style={{ color: 'darkgreen', textDecoration: 'underline' }}
-          >
-            Acesse a bula para pacientes
-          </a>
-        </p>
-      </section>
 
       <div style={{ 
         marginTop: '2rem', 
@@ -95,10 +84,45 @@ export default function Vacinas() {
         borderRadius: 8,
         textAlign: 'center'
       }}>
-        <p style={{ color: '#555', fontSize: '0.95rem' }}>
+        <p style={{ color: '#555', fontSize: '0.95rem', marginBottom: '1rem' }}>
           💡 <strong>Dica:</strong> Clique em qualquer vacina acima para ver informações detalhadas sobre 
           composição, indicação, esquema vacinal, eficácia e contraindicações.
         </p>
+      </div>
+
+      <div style={{ 
+        marginTop: '2rem', 
+        textAlign: 'center'
+      }}>
+        <a 
+          href="https://butantan.gov.br/producao/vacinas" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{
+            display: 'inline-block',
+            padding: '1rem 2rem',
+            backgroundColor: '#b13f3f',
+            color: 'white',
+            borderRadius: 8,
+            textDecoration: 'none',
+            fontWeight: 'bold',
+            fontSize: '1.1rem',
+            transition: 'all 0.3s ease',
+            boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = '#8b2f2f';
+            e.currentTarget.style.transform = 'translateY(-2px)';
+            e.currentTarget.style.boxShadow = '0 6px 12px rgba(0,0,0,0.2)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = '#b13f3f';
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+          }}
+        >
+          🌐 Visite o site oficial do Butantan
+        </a>
       </div>
     </main>
   );

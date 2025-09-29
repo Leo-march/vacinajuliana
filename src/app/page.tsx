@@ -1,93 +1,229 @@
+'use client';
+
 import Link from 'next/link';
 
 export default function Home() {
-  const vacinas = [
-    { id: 'influenza', nome: 'Influenza Sazonal Trivalente', icone: '💉', cor: '#e74c3c' },
-    { id: 'hepatite-a', nome: 'Hepatite A', icone: '🦠', cor: '#e67e22' },
-    { id: 'hepatite-b', nome: 'Hepatite B', icone: '🛡️', cor: '#f39c12' },
-    { id: 'hpv', nome: 'HPV', icone: '💊', cor: '#16a085' },
-    { id: 'raiva', nome: 'Raiva', icone: '🐕', cor: '#2980b9' },
-    { id: 'difteria-tetano', nome: 'DTP, DT, dT', icone: '💪', cor: '#8e44ad' },
-    { id: 'dtpa', nome: 'dTpa', icone: '👶', cor: '#c0392b' }
-  ];
-
   return (
     <div style={{ padding: '2rem 1rem', maxWidth: 1200, margin: '0 auto' }}>
+      {/* Hero Section */}
       <div style={{ 
         background: 'white', 
         borderRadius: 15, 
         boxShadow: '0 4px 6px rgba(0,0,0,0.1)', 
-        padding: '2rem', 
-        marginBottom: '2rem', 
+        padding: '3rem 2rem', 
+        marginBottom: '3rem', 
         textAlign: 'center' 
       }}>
-        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#2c3e50', marginBottom: '0.5rem' }}>
-          Vacinas Butantan
+        <h1 style={{ fontSize: '3rem', fontWeight: 'bold', color: '#2c3e50', marginBottom: '1rem' }}>
+          Instituto Butantan
         </h1>
-        <p style={{ fontSize: '1.2rem', color: '#7f8c8d', marginBottom: '0.5rem' }}>
-          Guia Completo de Vacinação
+        <p style={{ fontSize: '1.3rem', color: '#7f8c8d', marginBottom: '0.5rem' }}>
+          Mais de 120 anos protegendo a saúde pública brasileira
         </p>
-        <p style={{ color: '#95a5a6' }}>
-          Informações sobre as principais vacinas fornecidas ao Ministério da Saúde
+        <p style={{ fontSize: '1.1rem', color: '#95a5a6', lineHeight: 1.6, maxWidth: 800, margin: '0 auto' }}>
+          Referência mundial em pesquisa, produção de vacinas, soros e biofármacos
         </p>
       </div>
 
+      {/* Cards de Dados Rápidos */}
       <div style={{ 
         display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
         gap: '1.5rem',
-        marginBottom: '2rem'
+        marginBottom: '3rem'
       }}>
-        {vacinas.map((vacina) => (
-          <Link key={vacina.id} href={`/vacinas/${vacina.id}`} style={{ textDecoration: 'none' }}>
-            <div style={{
-              background: 'white',
-              borderRadius: 12,
-              boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-              padding: '1.5rem',
-              textAlign: 'center',
-              cursor: 'pointer',
-              transition: 'transform 0.3s, box-shadow 0.3s',
-              height: '100%'
-            }}>
-              <div style={{
-                width: 80,
-                height: 80,
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '2.5rem',
-                margin: '0 auto 1rem',
-                backgroundColor: vacina.cor + '20'
-              }}>
-                {vacina.icone}
-              </div>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#2c3e50', marginBottom: '0.5rem' }}>
-                {vacina.nome}
-              </h3>
-              <div style={{
-                height: 3,
-                width: 60,
-                backgroundColor: vacina.cor,
-                borderRadius: 2,
-                margin: '0 auto'
-              }}></div>
-            </div>
-          </Link>
-        ))}
+        <div style={{
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          borderRadius: 12,
+          padding: '2rem',
+          color: 'white',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+        }}>
+          <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>💉</div>
+          <h3 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>80%</h3>
+          <p style={{ fontSize: '1.1rem', opacity: 0.9 }}>
+            Das vacinas do Programa Nacional de Imunizações
+          </p>
+        </div>
+
+        <div style={{
+          background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+          borderRadius: 12,
+          padding: '2rem',
+          color: 'white',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+        }}>
+          <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🏭</div>
+          <h3 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>100M+</h3>
+          <p style={{ fontSize: '1.1rem', opacity: 0.9 }}>
+            Doses de vacinas produzidas anualmente
+          </p>
+        </div>
+
+        <div style={{
+          background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+          borderRadius: 12,
+          padding: '2rem',
+          color: 'white',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+        }}>
+          <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🔬</div>
+          <h3 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>15+</h3>
+          <p style={{ fontSize: '1.1rem', opacity: 0.9 }}>
+            Vacinas e soros diferentes produzidos
+          </p>
+        </div>
       </div>
 
+      {/* Seção Sobre Vacinação */}
       <div style={{
-        background: 'rgba(255,255,255,0.9)',
+        background: 'white',
         borderRadius: 12,
-        padding: '1.5rem',
-        textAlign: 'center'
+        padding: '2.5rem',
+        marginBottom: '3rem',
+        boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
       }}>
-        <p style={{ color: '#2c3e50', lineHeight: 1.6 }}>
-          <strong>Instituto Butantan:</strong> Referência em saúde pública brasileira, 
-          produzindo vacinas de alta qualidade, segurança e eficácia.
-        </p>
+        <h2 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#2c3e50', marginBottom: '1.5rem', textAlign: 'center' }}>
+          Por que a vacinação é importante?
+        </h2>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+          gap: '2rem'
+        }}>
+          <div>
+            <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🛡️</div>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#2c3e50', marginBottom: '0.5rem' }}>
+              Proteção Individual
+            </h3>
+            <p style={{ color: '#555', lineHeight: 1.6 }}>
+              Vacinas protegem você e sua família contra doenças graves e potencialmente fatais.
+            </p>
+          </div>
+
+          <div>
+            <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>👨‍👩‍👧‍👦</div>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#2c3e50', marginBottom: '0.5rem' }}>
+              Imunidade Coletiva
+            </h3>
+            <p style={{ color: '#555', lineHeight: 1.6 }}>
+              Quando muitas pessoas se vacinam, protegem também quem não pode ser imunizado.
+            </p>
+          </div>
+
+          <div>
+            <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>🌍</div>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#2c3e50', marginBottom: '0.5rem' }}>
+              Erradicação de Doenças
+            </h3>
+            <p style={{ color: '#555', lineHeight: 1.6 }}>
+              A vacinação em massa já erradicou a varíola e quase eliminou a poliomielite.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA - Navegação */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+        gap: '1.5rem'
+      }}>
+        <Link href="/vacinas" style={{ textDecoration: 'none' }}>
+          <div style={{
+            background: 'white',
+            borderRadius: 12,
+            padding: '2rem',
+            textAlign: 'center',
+            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            border: '2px solid transparent',
+            height: '100%'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-8px)';
+            e.currentTarget.style.borderColor = '#b13f3f';
+            e.currentTarget.style.boxShadow = '0 8px 16px rgba(177,63,63,0.3)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.borderColor = 'transparent';
+            e.currentTarget.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+          }}>
+            <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>💉</div>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#2c3e50', marginBottom: '0.5rem' }}>
+              Nossas Vacinas
+            </h3>
+            <p style={{ color: '#555', lineHeight: 1.6, margin: 0 }}>
+              Conheça as vacinas produzidas pelo Instituto Butantan
+            </p>
+          </div>
+        </Link>
+
+        <Link href="/mitos-verdades" style={{ textDecoration: 'none' }}>
+          <div style={{
+            background: 'white',
+            borderRadius: 12,
+            padding: '2rem',
+            textAlign: 'center',
+            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            border: '2px solid transparent',
+            height: '100%'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-8px)';
+            e.currentTarget.style.borderColor = '#b13f3f';
+            e.currentTarget.style.boxShadow = '0 8px 16px rgba(177,63,63,0.3)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.borderColor = 'transparent';
+            e.currentTarget.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+          }}>
+            <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>❓</div>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#2c3e50', marginBottom: '0.5rem' }}>
+              Mitos e Verdades
+            </h3>
+            <p style={{ color: '#555', lineHeight: 1.6, margin: 0 }}>
+              Esclareça suas dúvidas sobre vacinação
+            </p>
+          </div>
+        </Link>
+
+        <Link href="/calendario" style={{ textDecoration: 'none' }}>
+          <div style={{
+            background: 'white',
+            borderRadius: 12,
+            padding: '2rem',
+            textAlign: 'center',
+            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            border: '2px solid transparent',
+            height: '100%'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-8px)';
+            e.currentTarget.style.borderColor = '#b13f3f';
+            e.currentTarget.style.boxShadow = '0 8px 16px rgba(177,63,63,0.3)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.borderColor = 'transparent';
+            e.currentTarget.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+          }}>
+            <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📅</div>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#2c3e50', marginBottom: '0.5rem' }}>
+              Calendário Vacinal
+            </h3>
+            <p style={{ color: '#555', lineHeight: 1.6, margin: 0 }}>
+              Veja o calendário nacional de vacinação
+            </p>
+          </div>
+        </Link>
       </div>
     </div>
   );
