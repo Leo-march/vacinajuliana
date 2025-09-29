@@ -15,10 +15,10 @@ export default function Topbar() {
       <div>Instituto Butantan</div>
       <nav>
         <ul style={{ listStyle: 'none', display: 'flex', gap: '1.5rem', margin: 0, padding: 0 }}>
-          <li><Link href="/"><a style={{ color: 'white', textDecoration: 'none' }}>Início</a></Link></li>
-          <li><Link href="/vacinas"><a style={{ color: 'white', textDecoration: 'none' }}>Vacinas</a></Link></li>
-          <li><Link href="/mitos-verdades"><a style={{ color: 'white', textDecoration: 'none' }}>Mitos e Verdades</a></Link></li>
-          <li><Link href="/calendario"><a style={{ color: 'white', textDecoration: 'none' }}>Calendário</a></Link></li>
+          <li><Link href="/" style={{ color: 'white', textDecoration: 'none' }}>Início</Link></li>
+          <li><Link href="/vacinas" style={{ color: 'white', textDecoration: 'none' }}>Vacinas</Link></li>
+          <li><Link href="/mitos-verdades" style={{ color: 'white', textDecoration: 'none' }}>Mitos e Verdades</Link></li>
+          <li><Link href="/calendario" style={{ color: 'white', textDecoration: 'none' }}>Calendário</Link></li>
         </ul>
       </nav>
     </header>
