@@ -99,8 +99,15 @@ const vacinasData: Record<string, {
   }
 };
 
-export default function VacinaDetalhes({ params }: { params: { id: string } }) {
-  const vacina = vacinasData[params.id];
+// CORREÇÃO: Tornar a função async e aguardar params
+export default async function VacinaDetalhes({ 
+  params 
+}: { 
+  params: Promise<{ id: string }> 
+}) {
+  // Aguardar a resolução de params
+  const { id } = await params;
+  const vacina = vacinasData[id];
 
   if (!vacina) {
     notFound();
