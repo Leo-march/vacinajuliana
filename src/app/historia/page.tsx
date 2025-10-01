@@ -210,7 +210,7 @@ export default function Historia() {
                 Edward Jenner (1749-1823)
               </h4>
               <p style={{ color: '#555', lineHeight: 1.6, margin: 0, fontSize: '0.95rem' }}>
-                Médico inglês considerado o "pai da imunologia". Sua descoberta da vacina contra varíola 
+                Médico inglês considerado o &quot;pai da imunologia&quot;. Sua descoberta da vacina contra varíola 
                 revolucionou a medicina e salvou milhões de vidas.
               </p>
             </div>
@@ -255,7 +255,7 @@ export default function Historia() {
           borderLeft: '4px solid #ffc107'
         }}>
           <p style={{ margin: 0, color: '#856404', lineHeight: 1.6 }}>
-            💡 <strong>Curiosidade:</strong> A palavra "vacina" tem origem no latim <em>vacca</em> (vaca), 
+            💡 <strong>Curiosidade:</strong> A palavra &quot;vacina&quot; tem origem no latim <em>vacca</em> (vaca), 
             pois a primeira vacina foi desenvolvida usando material da varíola bovina por Edward Jenner. 
             Essa descoberta pioneira deu origem a uma das maiores conquistas da medicina moderna.
           </p>
