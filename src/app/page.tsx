@@ -1,8 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Home() {
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+
   return (
     <div style={{ padding: '2rem 1rem', maxWidth: 1200, margin: '0 auto' }}>
       {/* Hero Section */}
@@ -130,27 +133,24 @@ export default function Home() {
         gap: '1.5rem'
       }}>
         <Link href="/vacinas" style={{ textDecoration: 'none' }}>
-          <div style={{
-            background: 'white',
-            borderRadius: 12,
-            padding: '2rem',
-            textAlign: 'center',
-            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            border: '2px solid transparent',
-            height: '100%'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-8px)';
-            e.currentTarget.style.borderColor = '#b13f3f';
-            e.currentTarget.style.boxShadow = '0 8px 16px rgba(177,63,63,0.3)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.borderColor = 'transparent';
-            e.currentTarget.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
-          }}>
+          <div 
+            style={{
+              background: 'white',
+              borderRadius: 12,
+              padding: '2rem',
+              textAlign: 'center',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              border: hoveredCard === 'vacinas' ? '3px solid #b13f3f' : '2px solid #b13f3f',
+              height: '100%',
+              transform: hoveredCard === 'vacinas' ? 'translateY(-8px)' : 'translateY(0)',
+              boxShadow: hoveredCard === 'vacinas' 
+                ? '0 8px 16px rgba(177,63,63,0.3)' 
+                : '0 4px 6px rgba(0,0,0,0.1)'
+            }}
+            onMouseEnter={() => setHoveredCard('vacinas')}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
             <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>💉</div>
             <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#2c3e50', marginBottom: '0.5rem' }}>
               Nossas Vacinas
@@ -162,27 +162,24 @@ export default function Home() {
         </Link>
 
         <Link href="/mitos-verdades" style={{ textDecoration: 'none' }}>
-          <div style={{
-            background: 'white',
-            borderRadius: 12,
-            padding: '2rem',
-            textAlign: 'center',
-            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            border: '2px solid transparent',
-            height: '100%'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-8px)';
-            e.currentTarget.style.borderColor = '#b13f3f';
-            e.currentTarget.style.boxShadow = '0 8px 16px rgba(177,63,63,0.3)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.borderColor = 'transparent';
-            e.currentTarget.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
-          }}>
+          <div 
+            style={{
+              background: 'white',
+              borderRadius: 12,
+              padding: '2rem',
+              textAlign: 'center',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              border: hoveredCard === 'mitos' ? '3px solid #b13f3f' : '2px solid #b13f3f',
+              height: '100%',
+              transform: hoveredCard === 'mitos' ? 'translateY(-8px)' : 'translateY(0)',
+              boxShadow: hoveredCard === 'mitos' 
+                ? '0 8px 16px rgba(177,63,63,0.3)' 
+                : '0 4px 6px rgba(0,0,0,0.1)'
+            }}
+            onMouseEnter={() => setHoveredCard('mitos')}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
             <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>❓</div>
             <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#2c3e50', marginBottom: '0.5rem' }}>
               Mitos e Verdades
@@ -194,27 +191,24 @@ export default function Home() {
         </Link>
 
         <Link href="/calendario" style={{ textDecoration: 'none' }}>
-          <div style={{
-            background: 'white',
-            borderRadius: 12,
-            padding: '2rem',
-            textAlign: 'center',
-            boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            border: '2px solid transparent',
-            height: '100%'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-8px)';
-            e.currentTarget.style.borderColor = '#b13f3f';
-            e.currentTarget.style.boxShadow = '0 8px 16px rgba(177,63,63,0.3)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.borderColor = 'transparent';
-            e.currentTarget.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
-          }}>
+          <div 
+            style={{
+              background: 'white',
+              borderRadius: 12,
+              padding: '2rem',
+              textAlign: 'center',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              border: hoveredCard === 'calendario' ? '3px solid #b13f3f' : '2px solid #b13f3f',
+              height: '100%',
+              transform: hoveredCard === 'calendario' ? 'translateY(-8px)' : 'translateY(0)',
+              boxShadow: hoveredCard === 'calendario' 
+                ? '0 8px 16px rgba(177,63,63,0.3)' 
+                : '0 4px 6px rgba(0,0,0,0.1)'
+            }}
+            onMouseEnter={() => setHoveredCard('calendario')}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
             <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📅</div>
             <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#2c3e50', marginBottom: '0.5rem' }}>
               Calendário Vacinal
